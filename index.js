@@ -12,6 +12,7 @@ async function getPokemon() {
       console.log(pokemonData.results);
       const pokemonList = pokemonData.results;
       console.log(pokemonList[0].name);
+      createCard(pokemonList[0]);
     } else {
       console.log("Fetch not OK!");
     }
