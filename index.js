@@ -12,7 +12,7 @@ async function getPokemon() {
       console.log(pokemonData.results);
       const pokemonList = pokemonData.results;
       console.log(pokemonList[0].name);
-      createCard(pokemonList[0]);
+      renderCards(pokemonList);
     } else {
       console.log("Fetch not OK!");
     }
@@ -20,6 +20,7 @@ async function getPokemon() {
     console.error(error);
   }
 }
+
 getPokemon();
 function createCard(item) {
   const pokemon = document.createElement("li");
@@ -27,4 +28,9 @@ function createCard(item) {
   pokemonTitle.textContent = item.name;
   cardBox.append(pokemon);
   pokemon.append(pokemonTitle);
+}
+function renderCards(pokemonList) {
+  pokemonList.forEach((pokemon) => {
+    createCard(pokemon);
+  });
 }
